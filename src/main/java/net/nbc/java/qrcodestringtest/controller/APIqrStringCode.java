@@ -19,6 +19,7 @@ public class APIqrStringCode {
     @Operation(summary = "Verify and decode QR code", description = "Verifies and decodes a given QR code")
     public QRCodeResponse verifyAndDecodeQRCode(@RequestBody QRCodeRequest qrCodeRequest) {
         String qrCode = qrCodeRequest.getQrCode();
+
         KHQRResponse<CRCValidation> verifyResponse = BakongKHQR.verify(qrCode);
         KHQRResponse<KHQRDecodeData> decodeResponse = BakongKHQR.decode(qrCode);
 
